@@ -1,77 +1,7 @@
-# TypeScript Interview Questions & Notes
 
-## ✅ What’s the Difference Between `interface` and `type` in TypeScript?
+# TypeScript Interview Notes
 
-Both `interface` and `type` in TypeScript are used to define the shape of data, but they serve slightly different purposes and have different capabilities.
-
-### `interface`
-
-An `interface` is used to define the structure of an object. It specifies the properties and method signatures an object must have. Interfaces are ideal for defining object contracts and can be extended or implemented by classes.
-
-#### Syntax
-
-```ts
-interface InterfaceName {
-  property: type;
-  method(): returnType;
-}
-```
-
-#### Example
-
-```ts
-interface Person {
-  name: string;
-  gender: string;
-  age: number;
-}
-
-const person: Person = {
-  name: "Nazim",
-  gender: "Male",
-  age: 25,
-};
-
-console.log(`Name: ${person.name}, Age: ${person.age}, Gender: ${person.gender}.`);
-```
-
-#### Output
-
-```
-Name: Nazim, Age: 25, Gender: Male.
-```
-
----
-
-### `type`
-
-A `type` alias can define any valid type in TypeScript — including primitives, unions, intersections, and object shapes. It’s more flexible than an interface and great for building complex type compositions.
-
-#### Example
-
-```ts
-type User = {
-  name: string;
-  age: number;
-};
-
-const user: User = {
-  name: "Nazim",
-  age: 25,
-};
-
-console.log(user);
-```
-
-#### Output
-
-```ts
-{ name: "Nazim", age: 25 }
-```
-
----
-
-### 🔑 Key Differences Between `type` and `interface`
+## 🔄 Difference Between `type` and `interface`
 
 <table>
   <thead>
@@ -109,28 +39,67 @@ console.log(user);
     </tr>
   </tbody>
 </table>
----
 
+## ❓ Explain the difference between `any`, `unknown`, and `never` types in TypeScript.
 
----
+- `any`: Opts out of type checking. You can assign anything to a variable typed as `any`, and it can be assigned to anything.
+- `unknown`: Like `any`, but safer. You cannot use it directly without narrowing the type first.
+- `never`: Indicates values that never occur. Used in functions that never return or throw exceptions.
 
-## 🔍 What is the `keyof` Keyword in TypeScript?
+## 🧭 What is the use of enums in TypeScript? Provide an example of a numeric and string enum.
 
-The `keyof` keyword is a TypeScript operator used to get a union of string literal types representing the keys of a given object type.
-
-It's particularly useful when you want to build utility types or restrict values to valid keys of another type, ensuring strong type safety.
-
-### Example
+Enums allow you to define a set of named constants.
 
 ```ts
-interface Person {
-  name: string;
-  age: number;
-  email: string;
+// Numeric Enum
+enum Direction {
+  Up,
+  Down,
+  Left,
+  Right,
 }
 
-type PersonKeys = keyof Person;
-// Result: "name" | "age" | "email"
+// String Enum
+enum Status {
+  Success = "SUCCESS",
+  Failure = "FAILURE",
+}
 ```
 
-In this example, `keyof Person` creates a new type that is a union of the keys `"name"`, `"age"`, and `"email"`. This allows you to safely refer to the keys of an object type in generic or dynamic scenarios.
+## 💡 What is type inference in TypeScript? Why is it helpful?
+
+Type inference means TypeScript automatically determines the type of a variable when it's declared without an explicit type. This helps reduce redundancy and improves code readability while maintaining type safety.
+
+```ts
+let count = 10; // inferred as number
+```
+
+## 🛠️ How does TypeScript help in improving code quality and project maintainability?
+
+- Catches errors at compile time
+- Provides better IDE support (auto-completion, navigation, refactoring)
+- Encourages better design with interfaces and types
+- Makes code more self-documenting and easier to understand
+- Enhances collaboration in large teams
+
+## 🔀 Provide an example of using union and intersection types in TypeScript.
+
+```ts
+// Union type
+function printId(id: number | string) {
+  console.log("Your ID is: " + id);
+}
+
+// Intersection type
+type Employee = {
+  name: string;
+  startDate: Date;
+};
+
+type Manager = {
+  department: string;
+};
+
+type ManagerEmployee = Employee & Manager;
+```
+
