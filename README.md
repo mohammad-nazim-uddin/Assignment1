@@ -74,41 +74,43 @@ console.log(user);
 ### 🔑 Key Differences Between `type` and `interface`
 
 <table>
-  <thead align="center">
+  <thead>
     <tr>
-      <td><b>No</b></td>
-      <td><b>Types</b></td>
-      <td><b>Interface</b></td>
+      <th>No</th>
+      <th>Type</th>
+      <th>Interface</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>1</td>
-      <td>A collection of data types.</td>
-      <td>A syntactical contract.</td>
+      <td>Can define primitives, unions, intersections, and object shapes.</td>
+      <td>Mainly defines the structure of objects and contracts for classes.</td>
     </tr>
     <tr>
       <td>2</td>
-      <td>More flexible.</td>
-      <td>Less flexible compared to type.</td>
+      <td>Cannot be extended or reopened once defined.</td>
+      <td>Can be extended or merged using declaration merging.</td>
     </tr>
     <tr>
       <td>3</td>
-      <td>Uses the type keyword.</td>
-      <td>Uses the interface keyword.</td>
+      <td>Better suited for complex type compositions.</td>
+      <td>Better suited for object-oriented designs.</td>
     </tr>
     <tr>
       <td>4</td>
-      <td>Supports creating a new name for a type.</td>
-      <td>Provides a way to define entities.</td>
+      <td>More flexible in defining combinations of types.</td>
+      <td>More structured and focused on defining object contracts.</td>
     </tr>
     <tr>
       <td>5</td>
-      <td>Does not inherently support the use of an object.</td>
-      <td>Supports the use of an object.</td>
+      <td>Cannot be implemented by a class.</td>
+      <td>Can be implemented by a class.</td>
     </tr>
   </tbody>
 </table>
+---
+
 
 ---
 
